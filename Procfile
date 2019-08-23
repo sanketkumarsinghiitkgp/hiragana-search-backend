@@ -1,1 +1,1 @@
-web: gunicorn --bind $PORT myapp:app
+web: gunicorn --bind $PORT --threads=1 myapp:app
