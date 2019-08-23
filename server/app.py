@@ -12,7 +12,7 @@ import tensorflow as tf
 import urllib2
 from skimage.transform import resize
 from skimage.util import invert
-app = Flask(__name__)
+application = Flask(__name__)
 print('This is error output', file=sys.stderr)
 print('This is standard output', file=sys.stdout)
 
@@ -27,7 +27,7 @@ def rgb2gray(rgb):
     gray = 0.2989 * r + 0.5870 * g + 0.1140 * b
 
     return gray
-@app.route('/img',methods= ['POST'])
+@application.route('/img',methods= ['POST'])
 def img():
 	#content = request.get_json()
 	#print(content,file=sys.stdout)
@@ -77,4 +77,4 @@ def img():
 	#return predchar
 	return jsonify(predchar)
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    application.run(host='127.0.0.1', port=5000, debug=True)
