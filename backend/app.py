@@ -36,7 +36,6 @@ def img():
 	url=str(json.loads(request.data))
 	#print(url,file=sys.stdout)
 	
-	model = load_model('my_model.h5')
 	content = url.split(';')[1]
 	image_encoded = content.split(',')[1]
 	fh = open("download.png", "wb")
@@ -46,18 +45,16 @@ def img():
 	print(img.shape)
 	img=resize(img, (28, 28))
 	img=rgb2gray(img)
-	#img=invert(img)
+	##img=invert(img)
 	img = (img * 500).astype(np.uint8)
-	plt.imshow(img)
-	plt.waitforbuttonpress()
-	print(img)
+	#print(img)
 	img=np.expand_dims(img,axis=2)
 	img=np.expand_dims(img,axis=0)
-	print(img.shape)
+	#print(img.shape)
 	arr=model.predict(img)
 
 	ind=0
-	print(arr)
+	#print(arr)
 	for i in range(arr[0].shape[0]):
 		if arr[0][i]>arr[0][ind]:
 			ind=i
