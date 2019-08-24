@@ -4,12 +4,9 @@ from flask import Flask,request,jsonify
 from keras.models import load_model
 import pandas as pd
 import numpy as np
-from flask_cors import CORS
 import json
-import base64
 import matplotlib.pyplot as plt
 import tensorflow as tf
-import urllib2
 from skimage.transform import resize
 from skimage.util import invert
 application = Flask(__name__)
