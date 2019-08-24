@@ -1,6 +1,7 @@
 from __future__ import print_function
 import sys
 from flask import Flask,request,jsonify
+from flask_cors import CORS
 from keras.models import load_model
 import pandas as pd
 import numpy as np
@@ -20,6 +21,7 @@ data.head()
 # returns a compiled model
 # identical to the previous one
 model = load_model('my_model.h5')
+model._make_predict_function()
 def rgb2gray(rgb):
 
     r, g, b = rgb[:,:,3], rgb[:,:,1], rgb[:,:,2]
